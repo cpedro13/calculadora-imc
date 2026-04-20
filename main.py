@@ -12,7 +12,13 @@ def classificar(imc):
         return "Obesidade"
 
 if __name__ == "__main__":
-    peso = float(input("Peso (kg): "))
-    altura = float(input("Altura (m): "))
-    imc = calcular_imc(peso, altura)
-    print(f"IMC: {imc:.2f} — {classificar(imc)}")
+    while True:
+        peso = float(input("Peso (kg): "))
+        altura = float(input("Altura (m): "))
+
+        imc = calcular_imc(peso, altura)
+        print(f"IMC: {imc:.2f} — {classificar(imc)}")
+
+        continuar = input("\nPressione ENTER para continuar ou digite 'sair': ").lower()
+        if continuar == "sair":
+            break
