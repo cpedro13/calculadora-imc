@@ -24,7 +24,7 @@ jobs:
         run: pip install pylint
 
       - name: Rodar pylint
-        run: pylint main.py --fail-under=5
+        run: pylint imc.py --fail-under=5
 
   deliver:
     runs-on: ubuntu-latest
