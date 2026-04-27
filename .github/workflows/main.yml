@@ -24,7 +24,7 @@ jobs:
         run: pip install pylint
 
       - name: Rodar pylint
-        run: pylint main.py --fail-under=5
+        run: pylint imc.py --fail-under=5
 
   deliver:
     runs-on: ubuntu-latest
@@ -40,3 +40,17 @@ jobs:
           path: |
             **/*.py
             README.md
+
+name: Discord Commits
+uses: Sniddl/discord-commits@v1.8
+with:
+   webhook: ${{ secrets.DISCORD_WEBHOOK }}
+   template: "avatar-with-link"
+   include-extras: true
+   exclude-commits: |
+     ^fix:
+     ^feat:
+   include-footer: false
+   note-keywords: |
+     Signed-off-by
+     Co-authored-by
